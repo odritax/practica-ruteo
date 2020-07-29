@@ -1,18 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from '../components/Login';  // asumiendo que hicimos este componente
-import Home from '../components/Home';  // asumiendo que hicimos este componente
-import FastFood from '../components/FastFood';  // asumiendo que hicimos este componente
-import Restoran from '../components/Restoran';  // asumiendo que hicimos este componente
+import login from '../components/Login'; 
+import Home from '../components/Home'; 
+import FastFood from '../components/FastFood'; 
+import Restoran from '../components/Restoran'; 
+import Reviews from '../components/Reviews'; 
+import Photos from '../components/Photos'; 
+import About from '../components/About'; 
 import NoEncontrada from '../components/NotFound'
-
 
 Vue.use(VueRouter);    // instalamos explícitamente el router
 export default new VueRouter({
     routes: [
         {
             path: '/login', 
-            component: Login
+            component: login
         },
         {
             path: '/', 
@@ -24,7 +26,21 @@ export default new VueRouter({
         },
         {
             path: '/:nombre', 
-            component: Restoran
+            component: Restoran,
+            children:[
+            {
+                path:'',
+                component: About
+            },
+            {
+                path:'images',
+                component:Photos
+            },
+            {
+                path:'reviews',
+                component: Reviews
+            }
+            ]
         },
         {
             path: '*',

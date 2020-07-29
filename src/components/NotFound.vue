@@ -1,6 +1,8 @@
 <template>
-    <div>
-     <h3>Pagina no encontrada 404</h3>
-        
-    </div>
+<div>
+    <img id="img" src="../assets/error.jpg">   
+</div>
 </template>
+<style scoped>
+   #img {width:40%;}
+</style>
