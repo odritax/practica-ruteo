@@ -1,7 +1,7 @@
 <template>
 <div id="app">
-  <router-link class="prueba" v-bind:to="{ path: '/' }">Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</router-link>
-  <router-link class="prueba" v-bind:to="{ path: `/login` }"> Login</router-link>
+  <router-link class="prueba" v-bind:to="{ name: 'home', params: {home: 'home'} }">Home &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</router-link>
+  <router-link class="prueba" v-bind:to="{ name: 'login', params:{login: 'login'} }"> Login</router-link>
   <br><br>
   <router-view /> 
 </div>

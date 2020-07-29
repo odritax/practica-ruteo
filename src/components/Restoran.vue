@@ -1,16 +1,19 @@
 <template>
 <div>
   <img id="cinta" src="../assets/cinta.png" alt="">
-  <h2 id="texto">{{$route.params.nombre.toUpperCase()}}</h2>
+  <h2 id="texto">{{nombre}}</h2>
   <router-view></router-view>
-  <router-link  class="links" v-bind:to="{ path: `/${$route.params.nombre}` }"> About |</router-link>
-  <router-link  class="links" v-bind:to="{ path: `/${$route.params.nombre}/images` }"> Photos |</router-link>
-  <router-link  class="links" v-bind:to="{ path: `/${$route.params.nombre}/reviews` }"> Reviews</router-link>
+  <router-link  class="links" v-bind:to="{name: 'about', params: {restoran: nombre}}"> About |</router-link>
+  <router-link  class="links" v-bind:to="{name: 'photos', params: {restoran: nombre}}"> Photos |</router-link>
+  <router-link  class="links" v-bind:to="{name: 'reviews', params: {restoran: nombre}}"> Reviews</router-link>
 </div>
 </template>
 <script>
   export default {
     name:"Restoran",
+    props:{
+      nombre:String
+    },
     beforeCreate: function() {
       document.body.className = 'restoran';
     }
